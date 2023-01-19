@@ -48,4 +48,30 @@ public class ResourceManager : MonoBehaviour {
         return resourceAmountDictionary[resourceType];
     }
 
+    public bool CanAfford(ResourceAmount[] resourceAmounts)
+    {
+        foreach (ResourceAmount resourceAmount in resourceAmounts)
+        {
+            if (GetResourceAmount(resourceAmount.ResourceType) >= resourceAmount.Amount)
+            {
+                
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+    public void SpendResources(ResourceAmount[] resourceAmounts)
+    {
+        foreach (ResourceAmount resourceAmount in resourceAmounts)
+        {
+            resourceAmountDictionary[resourceAmount.ResourceType] -= resourceAmount.Amount;
+        }
+        
+    }
+
 }

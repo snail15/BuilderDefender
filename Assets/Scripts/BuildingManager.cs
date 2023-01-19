@@ -31,9 +31,13 @@ public class BuildingManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) { //Make sure it's not over other building
             if (activeBuildingType != null && CanSpawnBuilding(activeBuildingType, UtilsClass.GetMouseWorldPosition())) {
-                Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
+                if (ResourceManager.Instance.CanAfford(activeBuildingType.ConstructionResourceCostArray))
+                {
+                    ResourceManager.Instance.SpendResources(activeBuildingType.ConstructionResourceCostArray);
+                    Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
+                }
             }
         }
     }
