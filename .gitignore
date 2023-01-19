@@ -61,3 +61,8 @@ Thumbs.db.meta
 
 # VS Code
 *.vscode
+.idea/.idea.BuilderDefender/.idea/vcs.xml
+.idea/.idea.BuilderDefender/.idea/encodings.xml
+.idea/.idea.BuilderDefender/.idea/indexLayout.xml
+.idea/.idea.BuilderDefender/.idea/workspace.xml
+.idea/.idea.BuilderDefender/.idea/projectSettingsUpdater.xml
