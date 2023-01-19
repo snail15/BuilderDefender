@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87efacece31d4a48b8966ef9aa0afc8, type: 3}
+  m_Name: WoodHarvester
+  m_EditorClassIdentifier: 
+  nameString: Wood Harvester
+  prefab: {fileID: 453496587237905750, guid: a7f0c3f011328dc43bcea5d7d20faed8, type: 3}
+  resourceGeneratorData:
+    timerMax: 0.5
+    resourceType: {fileID: 11400000, guid: 55700961c53eafa429d5be95f146e90f, type: 2}
+    resourceDetectionRadius: 7
+    maxResourceAmount: 7
+  sprite: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
+  minConstructionRadius: 10
