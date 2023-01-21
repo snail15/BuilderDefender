@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,5 +12,16 @@ public class BuildingTypeSO : ScriptableObject {
     public Sprite sprite;
     public float minConstructionRadius;
     public ResourceAmount[] ConstructionResourceCostArray;
+
+    public string GetConstructionResourceCostString()
+    {
+        string str = String.Empty;
+        foreach (ResourceAmount amount in ConstructionResourceCostArray)
+        {
+            str += "<color=#" + amount.ResourceType.ColorHex + ">" + amount.ResourceType.NameShort + ": " + amount.Amount + "</color>" + " ";
+        }
+
+        return str;
+    }
 
 }
