@@ -19,7 +19,7 @@ public class BuildingManager : MonoBehaviour {
     private Camera mainCamera;
     private BuildingTypeListSO buildingTypeList;
     private BuildingTypeSO activeBuildingType;
-
+    [SerializeField] private Building hqBuilding;
     private void Awake() {
         Instance = this;
 
@@ -53,6 +53,12 @@ public class BuildingManager : MonoBehaviour {
                 }
 
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Vector3 enemySpawnPos = UtilsClass.GetMouseWorldPosition() + UtilsClass.GetRandomDirection() * 5f;
+            Enemy.Create(enemySpawnPos);
         }
     }
 
@@ -111,6 +117,11 @@ public class BuildingManager : MonoBehaviour {
 
         errorMessage = "Building too far away!";
         return false;
+    }
+
+    public Building GetHQBuilding()
+    {
+        return hqBuilding;
     }
 
 

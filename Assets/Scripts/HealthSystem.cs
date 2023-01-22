@@ -34,7 +34,7 @@ public class HealthSystem : MonoBehaviour
     }
     public bool IsDead()
     {
-        return _healthAmount == 0;
+        return _healthAmount <= 0;
     }
 
     public int GetHealthAmount()

@@ -17,10 +17,10 @@ public class Building : MonoBehaviour
 
    private void Update()
    {
-      if (Input.GetKeyDown(KeyCode.T))
-      {
-         _healthSystem.Damage(10);
-      }
+      // if (Input.GetKeyDown(KeyCode.T))
+      // {
+      //    _healthSystem.Damage(10);
+      // }
    }
 
    private void OnDied(object sender, EventArgs e)
