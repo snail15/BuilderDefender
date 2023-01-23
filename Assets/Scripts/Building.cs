@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+
+   public event EventHandler OnHQDestroyed;
+   
    private HealthSystem _healthSystem;
    private BuildingTypeSO _buildingType;
    private void Start()
@@ -25,6 +28,10 @@ public class Building : MonoBehaviour
 
    private void OnDied(object sender, EventArgs e)
    {
+      if (_buildingType.nameString.Equals("HQ"))
+      {
+         OnHQDestroyed?.Invoke(this,EventArgs.Empty);
+      }
       Destroy(gameObject);
    }
 }
