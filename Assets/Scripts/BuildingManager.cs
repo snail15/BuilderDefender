@@ -24,10 +24,19 @@ public class BuildingManager : MonoBehaviour {
         Instance = this;
 
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
+        
     }
 
     private void Start() {
         mainCamera = Camera.main;
+        var healthSystem = hqBuilding.GetComponent<HealthSystem>();
+        healthSystem.OnDied += OnHQDied;
+
+    }
+
+    private void OnHQDied(object sender, EventArgs e)
+    {
+        GameOverUI.Instance.Show();
     }
 
     private void Update() {

@@ -38,10 +38,10 @@ public class Building : MonoBehaviour
 
    private void OnDied(object sender, EventArgs e)
    {
-      if (_buildingType.nameString.Equals("HQ"))
-      {
-         OnHQDestroyed?.Invoke(this,EventArgs.Empty);
-      }
+      // if (_buildingType.nameString.Equals("HQ"))
+      // {
+      //    OnHQDestroyed?.Invoke(this,EventArgs.Empty);
+      // }
       Destroy(gameObject);
    }
 

@@ -15,7 +15,10 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _targetTransform = BuildingManager.Instance.GetHQBuilding().transform;
+        if (BuildingManager.Instance.GetHQBuilding() != null)
+        {
+            _targetTransform = BuildingManager.Instance.GetHQBuilding().transform;
+        }
 
         _healthSystem = GetComponent<HealthSystem>();
         _healthSystem.OnDied += OnDied;
@@ -100,7 +103,10 @@ public class Enemy : MonoBehaviour
 
             if (_targetTransform == null)
             {
-                _targetTransform = BuildingManager.Instance.GetHQBuilding().transform;
+                if (BuildingManager.Instance.GetHQBuilding() != null)
+                {
+                    _targetTransform = BuildingManager.Instance.GetHQBuilding().transform;
+                }
             }
         }
     }

@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyWaveManager : MonoBehaviour
 {
+   public static EnemyWaveManager Instance { get; private set; }
    public event EventHandler OnWaveNumberChanged;
    
    [SerializeField] private GameObject HQ;
@@ -29,6 +30,7 @@ public class EnemyWaveManager : MonoBehaviour
    private void Awake()
    {
       _IsHQAlive = true;
+      Instance = this;
    }
 
    private void Start()
@@ -86,7 +88,7 @@ public class EnemyWaveManager : MonoBehaviour
 
    private void SpwanWave()
    {
-      _remainingEnemySpawnAmount = 5 + 3 * _waveNumber;
+      _remainingEnemySpawnAmount = 40 + 3 * _waveNumber;
       _state = State.SpawningWave;
       _waveNumber += 1;
       OnWaveNumberChanged?.Invoke(this, EventArgs.Empty);
@@ -106,4 +108,6 @@ public class EnemyWaveManager : MonoBehaviour
    {
       return _spawnPos;
    }
+   
+   
 }
