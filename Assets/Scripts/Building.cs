@@ -42,6 +42,7 @@ public class Building : MonoBehaviour
    private void OnDamaged(object sender, EventArgs e)
    {
       ShowRepairhBtn();
+      SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDamaged);
    }
 
    private void Update()
@@ -58,6 +59,7 @@ public class Building : MonoBehaviour
       // {
       //    OnHQDestroyed?.Invoke(this,EventArgs.Empty);
       // }
+      SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDestroyed);
       Destroy(gameObject);
    }
 

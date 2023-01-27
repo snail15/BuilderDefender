@@ -22,14 +22,19 @@ public class Enemy : MonoBehaviour
 
         _healthSystem = GetComponent<HealthSystem>();
         _healthSystem.OnDied += OnDied;
-        
+        _healthSystem.OnDamaged += OnDamaged;
         _lookForTargetTimer = Random.Range(0f, _lookForTargetTimerMax);
         
         
     }
+    private void OnDamaged(object sender, EventArgs e)
+    {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyHit);
+    }
 
     private void OnDied(object sender, EventArgs e)
     {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
         Destroy(gameObject);
     }
 
